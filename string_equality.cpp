@@ -16,8 +16,10 @@ int main() {
 
         bool bad = false;
         for(i = 0; i < 26; i++) {
+            // check if frequency of have[i] is less than need[i] or (have[i]-need[i]) is not divisible by k then conversion is not possible
             if(have[i] < need[i] || (have[i] -= need[i]) % k)
                 bad = true;
+            //Assign the remaining frequency of character to the next character
             have[i+1] += have[i];
         }
         cout << (bad? "No" : "Yes") << '\n';
